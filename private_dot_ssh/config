@@ -5,7 +5,7 @@ Host BecodeVm
 #vmsdt-gilchrist.becode.org
 	User ewan
 	Port 911
-    #RemoteForward /run/user/1000/gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent.extra
+    RemoteForward /run/user/1000/gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent.extra
 
 Host susflatnine
 	Hostname 100.123.47.44

@@ -2,6 +2,8 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'dracula/vim'
  " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
+ Plug 'voldikss/vim-floaterm'
+ Plug 'pbrisbin/vim-mkdir'
  Plug 'fladson/vim-kitty'
  Plug 'SirVer/ultisnips'
  Plug 'honza/vim-snippets'
@@ -14,13 +16,30 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'itchyny/vim-gitbranch'
  Plug 'christoomey/vim-tmux-navigator'
  Plug 'szw/vim-maximizer'
+ Plug 'vimwiki/vimwiki'
+ Plug 'preservim/vim-markdown'
 " Plug 'kassio/neoterm'
  call plug#end()
 
 " set splitright
 " set splitbelow
 
+" Maximizer
+nnoremap <silent><F3> :MaximizerToggle<CR>
+vnoremap <silent><F3> :MaximizerToggle<CR>gv
+inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
+
+"FloatTerm
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
+
+"nnoremap <leader>s :FloatermToggle<CR>
 filetype plugin on
+
+set autochdir
+let g:NERDTreeChDirMode = 2
 
 let mapleader = " " 
 
@@ -29,11 +48,14 @@ let mapleader = " "
 "inoremap <c-q> <Esc>:Ttoggle<CR>
 "inoremap <c-q> <c-\><c-n>:Ttoggle<CR>
 
+"FZF Bindings
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :AllFiles<CR>
+
 
 "NERDTree Bindings
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-n> :NERDTree .<CR>
 map <leader>t :NERDTreeToggle<CR>
 " nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
@@ -43,6 +65,21 @@ nnoremap <C-f> :NERDTreeFind<CR>
 set guifont=Fira\ Code\ 11
 set encoding=utf8
 
+" Configuration for vim-markdown
+let g:vim_markdown_conceal = 2
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_math = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_edit_url_in = 'tab'
+let g:vim_markdown_follow_anchor = 1
+
+
+" Set vimwiki to markdown
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 :augroup numbertoggle
 :  autocmd!
