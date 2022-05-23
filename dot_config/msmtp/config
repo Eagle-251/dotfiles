@@ -1,0 +1,12 @@
+account ewan@gilchrist.scot
+host mail.gilchrist.scot
+port 465
+from ewan@gilchrist.scot
+user ewan@gilchrist.scot
+passwordeval "pass ewan@gilchrist.scot"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/ewan/.config/msmtp/msmtp.log
+tls_starttls off
+

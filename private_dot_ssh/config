@@ -1,9 +1,11 @@
 Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
 
 Host BecodeVm
-	Hostname vmsdt-gilchrist.becode.org
+	Hostname 100.64.114.83
+#vmsdt-gilchrist.becode.org
 	User ewan
 	Port 911
+    #RemoteForward /run/user/1000/gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent.extra
 
 Host susflatnine
 	Hostname 100.123.47.44

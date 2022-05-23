@@ -1,5 +1,8 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'dracula/vim'
+ " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+ Plug 'junegunn/fzf.vim'
+ Plug 'fladson/vim-kitty'
  Plug 'SirVer/ultisnips'
  Plug 'honza/vim-snippets'
  Plug 'scrooloose/nerdtree'
@@ -11,19 +14,22 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'itchyny/vim-gitbranch'
  Plug 'christoomey/vim-tmux-navigator'
  Plug 'szw/vim-maximizer'
- Plug 'kassio/neoterm'
+" Plug 'kassio/neoterm'
  call plug#end()
 
 " set splitright
 " set splitbelow
 
+filetype plugin on
+
 let mapleader = " " 
 
 " NEOTerm Bindings
-nnoremap <c-q> :Ttoggle<CR>
-inoremap <c-q> <Esc>:Ttoggle<CR>
-inoremap <c-q> <c-\><c-n>:Ttoggle<CR>
+"nnoremap <c-q> :Ttoggle<CR>
+"inoremap <c-q> <Esc>:Ttoggle<CR>
+"inoremap <c-q> <c-\><c-n>:Ttoggle<CR>
 
+nnoremap <leader>f :Files<CR>
 
 "NERDTree Bindings
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -53,6 +59,19 @@ set encoding=utf8
 colorscheme dracula" open new split panes to right and below
 set splitright
 set splitbelow
+" ===COC Keymap Config===
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " Light Git Config
 let g:lightline = {
@@ -61,9 +80,15 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
+      \   'gitbranch': 'gitbranch#name',
+      \   'filename': 'FilenameForLightline'  
       \ },
       \ }
+
+" Function To provide full path to lightline from https://codeyarns.com/tech/2017-10-25-how-to-show-full-file-path-in-lightline.html 
+function! FilenameForLightline()
+    return expand('%')
+endfunction
 
 " Pane Switching Key Bindings
 " Use ctrl-[hjkl] to select the active split!
@@ -74,7 +99,9 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 " set relativenumber
 set nocompatible            " disable compatibility to old-time vi
+set hidden
 set showmatch               " show matching 
+set scrolloff=8
 set ignorecase              " case insensitive 
 set mouse=v                 " middle-click paste with 
 set hlsearch                " highlight search 

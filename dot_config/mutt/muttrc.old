@@ -1,0 +1,24 @@
+set folder = "imaps://ewan@gilchrist.scot@mail.gilchrist.scot:993"
+
+set from = "ewan@gilchrist.scot"
+set realname = "Ewan Gilchrist"
+
+set imap_pass = "`pass show -o Email/ewan@gilchrist.scot`"
+set imap_user = "ewan@gilchrist.scot"
+set realname = "Ewan Gilchrist"
+set smtp_pass = "`pass show -o Email/ewan@gilchrist.scot`"
+
+set smtp_url = "smtps://ewan@gilchrist.scot@mail.gilchrist.scot:587"
+
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+
+mailboxes =INBOX =Sent =Trash =Drafts =Junk
+
+set mailcap_path 	= ~/.mutt/mailcap
+auto_view text/html
+source color.muttrc
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/ewan/.config/mutt/accounts/ewan@gilchrist.scot.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ewan@gilchrist.scot"
