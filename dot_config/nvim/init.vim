@@ -1,6 +1,7 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+ Plug 'jeetsukumaran/vim-buffergator'
  Plug 'dracula/vim'
- " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
  Plug 'voldikss/vim-floaterm'
  Plug 'pbrisbin/vim-mkdir'
@@ -17,6 +18,8 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'christoomey/vim-tmux-navigator'
  Plug 'szw/vim-maximizer'
  Plug 'vimwiki/vimwiki'
+ Plug 'tbabej/taskwiki'
+ "Plug 'plasticboy/vim-markdown'
  Plug 'preservim/vim-markdown'
 " Plug 'kassio/neoterm'
  call plug#end()
@@ -80,6 +83,7 @@ let g:vim_markdown_follow_anchor = 1
 " Set vimwiki to markdown
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_markdown_link_ext = 1
 
 :augroup numbertoggle
 :  autocmd!
