@@ -1,5 +1,6 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'jeetsukumaran/vim-buffergator'
+ Plug 'lambdalisue/suda.vim'
  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
  Plug 'dracula/vim'
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
