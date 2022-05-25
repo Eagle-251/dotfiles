@@ -1,6 +1,5 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export MATRIX_VAULT_PASSWORD:DbdJI49VjzY5XiZv42XopzKrvqr2AfHZv7YVX1zRLWjNOYwBWhCfB74TXcCyeZah
 SETUVAR SSH_AUTH_SOCK:/run/user/1000/gnupg/S\x2egpg\x2dagent\x2essh
 SETUVAR THEME_EDEN_PROMPT_CHAR:\u00bb
 SETUVAR THEME_EDEN_SHOW_HOST:yes

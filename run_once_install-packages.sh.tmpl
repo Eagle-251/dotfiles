@@ -1,0 +1,41 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+{{ if eq .chezmoi.osRelease.id "debian" -}}
+{{ if eq .chezmoi.osRelease.versionID "10" -}}
+#Fish Repo setup & Install
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
+{{ else if eq .chezmoi.osRelease.versionID "11" -}}
+#Fish Repo setup & Install
+echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
+{{ end }}
+sudo apt update
+sudo apt install \
+fish \ 
+bat \
+fd-find \
+jq \
+pwgen \
+net-tools \
+direnv \
+{{ else if eq .chezmoi.osRelease.id "fedora" -}}
+sudo dnf install \
+fish \
+neovim \
+python3-neovim \
+task \
+fira-code-fonts \
+htop \
+gopass \
+ansible \
+openssl \
+bat \
+gnome-shell-extension-pop-shell \
+fd-find \
+fzf \
+neofetch \
+sshfs \
+rofi \
+{{ end }}
+{{ end }}
