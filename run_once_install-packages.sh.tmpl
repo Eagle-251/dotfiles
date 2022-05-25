@@ -11,14 +11,15 @@ echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Deb
 curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
 {{ end }}
 sudo apt update
-sudo apt install \
-fish \ 
-bat \
-fd-find \
-jq \
-pwgen \
-net-tools \
-direnv \
+sudo apt install <<EOF 
+fish  
+bat 
+fd-find 
+jq 
+pwgen 
+net-tools 
+direnv
+EOF
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
 sudo dnf install \
 fish \
