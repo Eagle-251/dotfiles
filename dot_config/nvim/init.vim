@@ -1,5 +1,6 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'jeetsukumaran/vim-buffergator'
+ Plug 'nanotech/jellybeans.vim'
  Plug 'lambdalisue/suda.vim'
  Plug 'mg979/vim-visual-multi', {'branch': 'master'}
  Plug 'dracula/vim'
@@ -33,6 +34,9 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 nnoremap <silent><F3> :MaximizerToggle<CR>
 vnoremap <silent><F3> :MaximizerToggle<CR>gv
 inoremap <silent><F3> <C-o>:MaximizerToggle<CR>
+
+" Supress vim-buffergattor keymaps
+let g:buffergator_suppress_keymaps = 1
 
 "FloatTerm
 let g:floaterm_keymap_new    = '<F7>'
@@ -102,6 +106,7 @@ let g:vimwiki_markdown_link_ext = 1
 colorscheme dracula" open new split panes to right and below
 set splitright
 set splitbelow
+
 " ===COC Keymap Config===
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
