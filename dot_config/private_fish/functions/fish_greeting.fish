@@ -9,5 +9,5 @@ function fish_greeting
             echo (set_color red; echo $raw_temp; set_color normal)
         end
     end
-    echo Hello $USER, it is $timeand outside it is (parse_temp)and $weather
+    echo Hello $USER, it is $time and outside it is (parse_temp)and $weather
 end
