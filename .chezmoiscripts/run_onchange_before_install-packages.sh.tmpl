@@ -1,13 +1,21 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
+
+# Install Vim Plug
+
 if [ ! -e $HOME/.local/share/nvim/site/autoload/plug.vim ]; then
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
+
 {{ if eq .chezmoi.osRelease.id "debian" -}}
+
 if ! command -v fish &>/dev/null; then
+
 {{ if eq .chezmoi.osRelease.versionID "10" -}}
+
 #Fish Repo setup & Install
+
 echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
 curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
 fi
@@ -19,11 +27,9 @@ fi
 {{ else }}
 fi
 {{ end }}
-echo "Debian Found "
-#sudo apt update;
-#echo "got to after update";
 sudo apt install \
 fish \
+fzf \
 bat \
 fd-find \
 htop \
