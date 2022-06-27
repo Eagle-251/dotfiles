@@ -4,6 +4,8 @@ if status is-interactive
     set SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
     # Commands to run in interactive sessions can go here
 end
+
+pyenv init - | source
 {{ else }}
 #empty
 {{ end }}

@@ -1,18 +1,24 @@
 Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
 
+#Host becode-shared-server
+    #Hostname 
+Host becode-outline-vm
+    Hostname vmsrv-lovelace
+    User deploy
+
 Host vmsdt-gilchrist.becode.org
-    Hostname vmsdt-gilchrist.becode.org
-    #100.64.114.83
+    Hostname 100.64.114.83
 	User ewan
 	Port 911
-    RemoteForward /home/ewan/.gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent #.extra
-    #RemoteForward /home/ewan/.gnupg/S.gpg-agent /home/ewan/.gnupg/S.gpg-agent.extra
+    RemoteForward /run/user/1002/gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent.extra   
+    ForwardAgent yes
 
 Host susflatnine
 	Hostname 100.123.47.44
 	User ewan
 	Port 417
-    RemoteForward /run/user/1000/gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent.extra
+    RemoteForward /run/user/1000/gnupg/S.gpg-agent /run/user/1000/gnupg/S.gpg-agent
+    #.extra
 
 Host pi
 	Hostname 100.64.172.89
