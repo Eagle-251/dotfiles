@@ -2,8 +2,15 @@
 #!/bin/sh
 
 if ! command -v fish &>/dev/null; then
+echo "Fish shell not installed.. will install"
+
+{{ if eq .chezmoi.osRelease.id "debian" -}}
+
+echo "Found Debian.. checking release version"
 
 {{ if eq .chezmoi.osRelease.versionID "10" -}}
+
+echo "Found Debian 10.. adding Third party fish repo"
 
 #Fish Repo setup & Install
 
@@ -13,6 +20,8 @@ curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debi
 fi
 
 {{ else if eq .chezmoi.osRelease.versionID "11" -}}
+
+echo "Found Debian 11... adding Third party fish repo"
 
 #Fish Repo setup & Install
 echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
@@ -26,6 +35,8 @@ fi
 
 {{ end }}
 
+echo "Installing general Packages.."
+
 sudo apt install \
 fish \
 fzf \
@@ -38,6 +49,8 @@ net-tools \
 direnv \
 
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
+
+echo "Found Fedora.. installing Fish and General Packages with DNF..."
 
 sudo dnf install \
 fish \
@@ -56,4 +69,7 @@ fzf \
 neofetch \
 sshfs \
 rofi \
+
+fi
+{{ end }}
 {{ end }}
