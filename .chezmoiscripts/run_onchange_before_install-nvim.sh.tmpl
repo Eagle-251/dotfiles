@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "linux" -}}
+
 #!/bin/sh
 echo "Checking if nvim is installed.."
 
@@ -27,11 +27,8 @@ ln -s $PWD/nvim.appimage $HOME/.local/bin/nvim
 fi
 
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
-
 echo "Found Fedora.. Installing with DNF"
-
 sudo dnf install neovim
-
 fi
 
 {{ else }}
