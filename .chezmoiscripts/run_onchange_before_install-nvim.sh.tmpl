@@ -1,6 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
+if ! command -v nvim &>/dev/null; then
+
 {{ if eq .chezmoi.osRelease.id "debian" -}}
 
 # nvim_appimage_release=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | jq '.assets[] | select(.name | test("nvim.appimage(?!.zsync|.sha256sum)")) | .browser_d
@@ -9,15 +11,24 @@
 # wget $nvim_appimage_release
 # chmod +x nvim.appimage
 
+
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 
 mkdir -p $HOME/.local/bin
 ln -s $PWD/nvim.appimage $HOME/.local/bin/nvim
 
+fi
+
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
 
 sudo dnf install nvim
+fi
+
+{{ else }}
+
+fi
+
 {{ end }}
 
 
