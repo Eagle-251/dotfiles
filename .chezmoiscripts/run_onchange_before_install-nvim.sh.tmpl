@@ -1,9 +1,14 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
+echo "Checking if nvim is installed.."
 
 if ! command -v nvim &>/dev/null; then
 
+echo "Nvim is not installed.. attempting to install.."
+
 {{ if eq .chezmoi.osRelease.id "debian" -}}
+
+echo "Found Debian"
 
 # nvim_appimage_release=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | jq '.assets[] | select(.name | test("nvim.appimage(?!.zsync|.sha256sum)")) | .browser_d
 # download_url' | sed s/\"//g)
@@ -11,6 +16,7 @@ if ! command -v nvim &>/dev/null; then
 # wget $nvim_appimage_release
 # chmod +x nvim.appimage
 
+echo "Downloading and installing NVim AppImage"
 
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
@@ -21,6 +27,8 @@ ln -s $PWD/nvim.appimage $HOME/.local/bin/nvim
 fi
 
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
+
+echo "Found Fedora.. Installing with DNF"
 
 sudo dnf install neovim
 
