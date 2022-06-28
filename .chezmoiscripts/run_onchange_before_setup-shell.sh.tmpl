@@ -1,8 +1,13 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
-[[ "$SHELL" == "/usr/bin/fish" ]] && echo "Fish is installed" || echo "Changing shell to fish.." && chsh -s /usr/bin/fish 
-
+if ! command -a chsh &>/dev/null; then
+    {{ if eq .chezmoi.osRelease.id "fedora" -}}
+    sudo dnf install util-linux-user
+fi
+{{ else }}
+    echo "not sure why you don't have chsh...'"
+fi
 {{ end }}
-
-
+[[ "$SHELL" == "/usr/bin/fish" ]] && echo "Fish is installed" || echo "Changing shell to fish.." && chsh -s /usr/bin/fish 
+{{ end }}
