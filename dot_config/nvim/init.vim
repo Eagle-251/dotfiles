@@ -1,6 +1,7 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  "Plug 'jeetsukumaran/vim-buffergator'
  "Plug 'nanotech/jellybeans.vim'
+ Plug 'vim-autoformat/vim-autoformat'
  Plug 'jamessan/vim-gnupg'
  Plug 'tpope/vim-surround'
  Plug 'lambdalisue/suda.vim'

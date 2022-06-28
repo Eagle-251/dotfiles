@@ -32,20 +32,12 @@ echo "Found Fedora.. Installing with DNF"
 
 sudo dnf install neovim
 
-#fi
+fi
 
 {{ else }}
 
 fi
 
 {{ end }}
-
-
-### Install Vim Plug
-#
-#if [ ! -e $HOME/.local/share/nvim/site/autoload/plug.vim ]; then
-#sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-#       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-#fi
 
 {{ end }}
