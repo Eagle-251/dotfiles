@@ -10,4 +10,5 @@ fi
 fi
 {{ end }}
 [[ "$SHELL" == "/usr/bin/fish" ]] && echo "Fish is installed" || echo "Changing shell to fish.." && chsh -s /usr/bin/fish 
+[[ "$nvm_default_version" == "v14.19.2" ]] && echo "NVM default version is set" || echo "Setting defulat nvm version..." && fish -c "set --universal nvm_default_version v14.19.2"
 {{ end }}
