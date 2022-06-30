@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
-if ! command -a chsh &>/dev/null; then
+if ! command -v chsh &>/dev/null; then
     {{ if eq .chezmoi.osRelease.id "fedora" -}}
     sudo dnf install util-linux-user
 fi
