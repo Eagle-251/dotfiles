@@ -9,6 +9,16 @@ fi
     echo "not sure why you don't have chsh...'"
 fi
 {{ end }}
-[[ "$SHELL" == "/usr/bin/fish" ]] && echo "Fish is installed" || echo "Changing shell to fish.."; chsh -s /usr/bin/fish 
-[[ "$nvm_default_version" == "v14.19.2" ]] && echo "NVM default version is set" || echo "Setting defulat nvm version..." && fish -c "set --universal nvm_default_version v14.19.2"
+
+# Defult Shell Check
+
+if [[ "$SHELL" == "/usr/bin/fish" ]]; then 
+    echo "Fish is installed"
+else
+    echo -e "Default shell is not fish \n Changing shell to fish.."
+    chsh -s /usr/bin/fish 
+fi
+
+
+
 {{ end }}

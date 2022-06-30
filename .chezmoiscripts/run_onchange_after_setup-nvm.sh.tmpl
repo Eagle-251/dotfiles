@@ -1,0 +1,13 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/usr/bin/fish
+
+# NVM Default Version Env Variable Check
+
+if test "$nvm_default_version" = "v14.19.2"
+    echo "NVM default version is set" 
+else
+    echo "Setting default nvm version..." 
+    set --universal nvm_default_version v14.19.2
+end
+{{ end }}
