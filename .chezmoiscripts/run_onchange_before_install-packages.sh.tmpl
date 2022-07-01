@@ -17,6 +17,9 @@ echo "Found Debian 10.. adding Third party fish repo"
 echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
 curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
 
+
+
+
 fi
 
 {{ else if eq .chezmoi.osRelease.versionID "11" -}}
@@ -40,7 +43,7 @@ echo "Installing general Packages.."
 sudo apt install -y \
 fish \
 fzf \
-bat \
+#bat \
 fd-find \
 htop \
 jq \
