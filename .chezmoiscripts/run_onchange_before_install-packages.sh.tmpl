@@ -37,7 +37,7 @@ fi
 
 echo "Installing general Packages.."
 
-sudo apt install \
+sudo apt install -y \
 fish \
 fzf \
 bat \
@@ -52,7 +52,7 @@ direnv \
 
 echo "Found Fedora.. installing Fish and General Packages with DNF..."
 
-sudo dnf install \
+sudo dnf install -y \
 fish \
 neovim \
 python3-neovim \

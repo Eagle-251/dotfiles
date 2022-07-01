@@ -3,7 +3,7 @@
 
 if ! command -v chsh &>/dev/null; then
     {{ if eq .chezmoi.osRelease.id "fedora" -}}
-    sudo dnf install util-linux-user
+    sudo dnf install -y util-linux-user
 fi
 {{ else }}
     echo "not sure why you don't have chsh...'"

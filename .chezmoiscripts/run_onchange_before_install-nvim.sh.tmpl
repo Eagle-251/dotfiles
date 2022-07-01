@@ -29,7 +29,7 @@ fi
 {{ else if eq .chezmoi.osRelease.id "fedora" -}}
 
     echo "Found Fedora.. Installing with DNF"
-    sudo dnf install neovim
+    sudo dnf install -y neovim
 fi
 
 {{ else }}
