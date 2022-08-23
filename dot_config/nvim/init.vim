@@ -6,42 +6,76 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" PLUGINS
+
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
- "Plug 'jeetsukumaran/vim-buffergator'
- "Plug 'nanotech/jellybeans.vim'
+ Plug 'hashivim/vim-terraform'
  Plug 'vim-autoformat/vim-autoformat'
  Plug 'khaveesh/vim-fish-syntax'
  Plug 'jamessan/vim-gnupg'
  Plug 'tpope/vim-surround'
  Plug 'lambdalisue/suda.vim'
- "Plug 'mg979/vim-visual-multi', {'branch': 'master'}
  Plug 'dracula/vim'
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
  Plug 'voldikss/vim-floaterm'
  Plug 'pbrisbin/vim-mkdir'
  Plug 'fladson/vim-kitty'
- "Plug 'SirVer/ultisnips'
- "Plug 'honza/vim-snippets'
+ Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
  Plug 'scrooloose/nerdtree'
  Plug 'preservim/nerdcommenter'
  Plug 'mhinz/vim-startify'
  Plug 'ryanoasis/vim-devicons'
+ Plug 'SirVer/ultisnips'
+ Plug 'honza/vim-snippets'
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'itchyny/lightline.vim'
  Plug 'itchyny/vim-gitbranch'
- "Plug 'christoomey/vim-tmux-navigator'
  Plug 'szw/vim-maximizer'
- "Plug 'vimwiki/vimwiki'
- "Plug 'tbabej/taskwiki'
- "Plug 'plasticboy/vim-markdown'
- Plug 'preservim/vim-markdown'
-" Plug 'kassio/neoterm'
+  Plug 'Yggdroot/indentLine'
+  Plug 'roxma/nvim-yarp'
+  Plug 'preservim/vim-markdown'
  call plug#end()
+
+
+" Util Snippets
+
+"let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" vim-autoformat
+noremap <leader>fr :Autoformat<CR>
+" NCM2
+"augroup NCM2
+  "autocmd!
+  "" enable ncm2 for all buffers
+  "autocmd BufEnter * call ncm2#enable_for_buffer()
+  "" :help Ncm2PopupOpen for more information
+  "set completeopt=noinsert,menuone,noselect
+  "" When the <Enter> key is pressed while the popup menu is visible, it only
+  "" hides the menu. Use this mapping to close the menu and also start a new line.
+  ""inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+"augroup END
+" Ale
+"let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_echo_msg_error_str = 'E'
+"let g:ale_echo_msg_warning_str = 'W'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_linters = {'python': ['flake8']}
+
 
 set splitright
 set splitbelow
 
+" COC Mappings
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+"inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
 
 " Maximizer
@@ -112,8 +146,8 @@ set guifont=Fira\ Code\ 11
 set encoding=utf8
 
 " Configuration for vim-markdown
-autocmd FileType vimwiki setlocal syntax=markdown
-let g:vim_markdown_conceal = 2
+"autocmd FileType vimwiki setlocal syntax=markdown
+let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_math = 1
 let g:vim_markdown_toml_frontmatter = 1

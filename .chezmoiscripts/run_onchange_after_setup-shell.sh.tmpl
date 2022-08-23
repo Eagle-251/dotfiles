@@ -1,6 +1,11 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
+if ! command -v fish &>/dev/null; then
+    echo -e "fish didn't install properly... \n exiting..."
+    exit
+fi
+
 if ! command -v chsh &>/dev/null; then
     {{ if eq .chezmoi.osRelease.id "fedora" -}}
     sudo dnf install -y util-linux-user
