@@ -12,4 +12,6 @@ crontab -l > crontab.bak
 
 (crontab -l 2>/dev/null; echo "0,15,30,45 * * * * ~/.prompt/get_weather.sh")| crontab -
 
+bash ~/.prompt/get_weather.sh
+
 {{ end }}
