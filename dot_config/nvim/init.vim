@@ -17,6 +17,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'tpope/vim-surround'
  Plug 'lambdalisue/suda.vim'
  Plug 'dracula/vim'
+ Plug 'ayu-theme/ayu-vim' " or other package manager
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
  Plug 'junegunn/fzf.vim'
  Plug 'voldikss/vim-floaterm'
@@ -26,6 +27,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
  Plug 'scrooloose/nerdtree'
  Plug 'preservim/nerdcommenter'
  Plug 'mhinz/vim-startify'
+ Plug 'NLKNguyen/papercolor-theme'
  Plug 'ryanoasis/vim-devicons'
  Plug 'SirVer/ultisnips'
  Plug 'honza/vim-snippets'
@@ -184,7 +186,13 @@ let g:vim_markdown_follow_anchor = 1
  endif
  syntax enable
  " colorscheme evening
-colorscheme dracula" open new split panes to right and below
+"colorscheme dracula" open new split panes to right and below
+
+"...
+"set termguicolors     " enable true colors support
+set background=dark
+colorscheme PaperColor
+
 set splitright
 set splitbelow
 
