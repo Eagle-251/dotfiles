@@ -19,12 +19,15 @@ M.plugins = {
     ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
       config = function()
-         require "custom.plugins.null-ls"
+        require "custom.plugins.null-ls"
       end,
     },
     ["rcarriga/nvim-notify"] = {
-      after = "null-ls.nvim"
-    }
+      after = "null-ls.nvim",
+    },
+    ["goolord/alpha-nvim"] = {
+      disable = false,
+    },
   },
   -- ["goolord/alpha-nvim"] = {
   --   disable = false,
