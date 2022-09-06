@@ -8,6 +8,9 @@ local b = null_ls.builtins
 
 local sources = {
 
+  -- Languages
+  b.formatting.gofmt,
+
   -- IaC
   b.diagnostics.ansiblelint,
   b.formatting.terraform_fmt,
@@ -25,8 +28,23 @@ local sources = {
 
 -- local notify = require()
 
+local nullSaveOnClose = vim.api.nvim_create_augroup("LspFormatting", {})
+
 null_ls.setup {
   debug = true,
   sources = sources,
-  -- notify_format = 
+  on_attach = function(client, bufnr)
+    if client.supports_method "textDocument/formatting" then
+      vim.api.nvim_clear_autocmds { group = nullSaveOnClose, buffer = bufnr }
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = nullSaveOnClose,
+        buffer = bufnr,
+        callback = function()
+          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+          vim.lsp.buf.formatting_sync()
+        end,
+      })
+    end
+  end,
+  -- notify_format =
 }

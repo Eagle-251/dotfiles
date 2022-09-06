@@ -2,18 +2,21 @@
 --
 -- require'lspconfig'.terraformls.setup{
 -- }
-
+require("lspconfig").tailwindcss.setup {}
 
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local servers = {
+  "emmet_ls",
   "html",
+  "tailwindcss",
   "bashls",
   "cssls",
   "clangd",
   "ansiblels",
+  -- "tsserver",
   -- "shellcheck",
   "gopls",
   -- "terraformls",

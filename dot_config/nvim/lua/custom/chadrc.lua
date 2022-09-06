@@ -28,6 +28,8 @@ M.plugins = {
     ["goolord/alpha-nvim"] = {
       disable = false,
     },
+    ["tpope/vim-surround"] = {},
+    ["lambdalisue/suda.vim"] = {},
   },
   -- ["goolord/alpha-nvim"] = {
   --   disable = false,
