@@ -1,0 +1,16 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+if ! command -v lvim &>/dev/null; then
+  echo "lvim is not installed.. installing.."
+
+  curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh > /tmp/lvim-install.sh
+  chmod +x /tmp/lvim-install.sh
+
+  bash /tmp/lvim-install.sh -y --no-install-dependencies
+
+  rm -rf /tmp/lvim-install.sh
+else
+  echo "lvim is already installed.. not doing anything"
+fi
+{{ end }}
