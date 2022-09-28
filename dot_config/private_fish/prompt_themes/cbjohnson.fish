@@ -14,6 +14,11 @@ function fish_prompt
         set -g __fish_prompt_char »
     end
   end
+  function checkVenv 
+    if [ -n "$VIRTUAL_ENV" ] && [ -n "$DIRENV_DIR" ]
+     echo \((basename $VIRTUAL_ENV)\)
+    end
+  end
 
   # Setup colors
   set -l normal (set_color normal)
@@ -35,7 +40,7 @@ function fish_prompt
   end
 
   # Top
-  echo -n $cyan$USER$normal at $yellow$__fish_prompt_hostname$normal in $bred(prompt_pwd)$normal
+  echo -n $cyan(checkVenv) $USER$normal at $yellow$__fish_prompt_hostname$normal in $bred(prompt_pwd)$normal
   __fish_git_prompt
 
   echo
