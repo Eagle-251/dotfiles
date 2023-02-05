@@ -9,6 +9,7 @@ local servers = {
 	"yamlls",
   "ansiblels",
   "terraform_lsp",
+  "gopls",
 }
 
 local settings = {
