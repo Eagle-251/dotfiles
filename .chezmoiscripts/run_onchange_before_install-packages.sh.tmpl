@@ -39,12 +39,7 @@ else
   echo -e "already installed \n skipping..."
 fi
 
-{{ else }}
-  echo -e "Not installed but I don't know this OS \n Skipping..."
-else 
-  echo -e "already installed \n skipping..."
-fi
-
+{{ end }}
 {{ end }}
 
 echo "Installing general Packages.."
@@ -58,6 +53,12 @@ jq \
 pwgen \
 net-tools \
 direnv \
+
+{{ else }}
+  echo -e "Not installed but I don't know this OS \n Skipping..."
+else 
+  echo -e "already installed \n skipping..."
+fi
 
 {{ end }}
 
@@ -84,5 +85,4 @@ fzf \
 neofetch \
 sshfs \
 rofi \
-{{ end }}
 {{ end }}
