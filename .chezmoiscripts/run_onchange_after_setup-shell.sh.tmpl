@@ -9,9 +9,11 @@ fi
 if ! command -v chsh &>/dev/null; then
     {{ if eq .chezmoi.osRelease.id "fedora" -}}
     sudo dnf install -y util-linux-user
-fi
-{{ else }}
+    {{ else }}
     echo "not sure why you don't have chsh...'"
+    {{ end }}
+else
+  echo -e "chsh installed \n Skipping..."
 fi
 {{ end }}
 
@@ -24,6 +26,3 @@ else
     chsh -s /usr/bin/fish 
 fi
 
-
-
-{{ end }}
