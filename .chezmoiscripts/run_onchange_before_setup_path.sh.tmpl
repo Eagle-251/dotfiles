@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+case :$PATH: in
+  *:$HOME/.local/bin:*)
+      echo -e "~/.local/bin already in path \n skipping..."
+      exit
+      ;;
+  *)
+      echo "$HOME/.local/bin not in $PATH, adding it to your path" 
+      echo "export PATH='$HOME/bin:$PATH'" | tee -a ~/.bashrc
+      ;;
+esac
