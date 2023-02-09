@@ -6,9 +6,9 @@ if ! command -v nvim &>/dev/null; then
 
     echo "Nvim is not installed.. attempting to install.."
 
-{{ if eq .chezmoi.osRelease.id "debian" -}}
+{{ if eq .chezmoi.osRelease.id "debian" "ubuntu" -}}
 
-    echo "Found Debian"
+    echo "Found Debian or Ubuntu"
     
     # nvim_appimage_release=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | jq '.assets[] | select(.name | test("nvim.appimage(?!.zsync|.sha256sum)")) | .browser_d
     # download_url' | sed s/\"//g)
@@ -16,13 +16,17 @@ if ! command -v nvim &>/dev/null; then
     # wget $nvim_appimage_release
     # chmod +x nvim.appimage
     
-    echo "Downloading and installing NVim AppImage"
+    echo "Downloading and installing Nvim AppImage"
     
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
     chmod u+x nvim.appimage
     
     mkdir -p $HOME/.local/bin
-    ln -s $PWD/nvim.appimage $HOME/.local/bin/nvim
+    mv nvim.appimage $HOME/.local/bin/nvim
+
+else
+  
+  echo -e "Nvim already installed..\n Skipping..."
     
 fi
 
@@ -30,11 +34,14 @@ fi
 
     echo "Found Fedora.. Installing with DNF"
     sudo dnf install -y neovim
+else
+  echo -e "Nvim already installed..\n Skipping..."
 fi
 
 {{ else }}
-
+  echo -e "Not installed but not sure what this OS is \n Skipping..."
+else
+  echo -e "Nvim already installed..\n Skipping..."
 fi
-
 {{ end }}
 
