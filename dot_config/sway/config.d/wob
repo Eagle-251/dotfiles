@@ -1,0 +1,6 @@
+bindsym --locked XF86AudioRaiseVolume exec "pw-volume change +5% &> /dev/null; pw-volume status | jq ".percentage" > $WOBSOCK"
+bindsym --locked XF86AudioLowerVolume exec "pw-volume change -5% &> /dev/null; pw-volume status | jq ".percentage" > $WOBSOCK" 
+bindsym --locked XF86AudioMute exec "pw-volume mute toggle &> /dev/null; pw-volume status | jq ".percentage" > $WOBSOCK" 
+bindsym --locked XF86MonBrightnessDown exec bash -c "brightnessctl set 5%- &>/dev/null && echo $(brightnessctl | grep 'Current brightness' | cut -d " " -f 4 | sed 's/(//g;s/)//g;s/%//g') > $WOBSOCK"
+bindsym --locked XF86MonBrightnessUp exec bash -c "brightnessctl set 5%+ &>/dev/null && echo $(brightnessctl | grep 'Current brightness' | cut -d " " -f 4 | sed 's/(//g;s/)//g;s/%//g') > $WOBSOCK" 
+
