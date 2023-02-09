@@ -1,0 +1,5 @@
+{{- if ne .chezmoi.hostname "lenovoewan" }}
+.config/sway
+.config/kitty
+.config/waybar
+{{- end }}
