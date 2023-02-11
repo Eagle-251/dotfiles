@@ -1,21 +1,15 @@
 #!/bin/bash
 
+{{ if ne .chezmoi.arch "amd64" }}
 echo "Checking if nvim is installed.."
 
 if ! command -v nvim &>/dev/null; then
 
     echo "Nvim is not installed.. attempting to install.."
-
 {{ if eq .chezmoi.osRelease.id "debian" "ubuntu" -}}
 
     echo "Found Debian or Ubuntu"
-    
-    # nvim_appimage_release=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | jq '.assets[] | select(.name | test("nvim.appimage(?!.zsync|.sha256sum)")) | .browser_d
-    # download_url' | sed s/\"//g)
-    # 
-    # wget $nvim_appimage_release
-    # chmod +x nvim.appimage
-    
+
     echo "Downloading and installing Nvim AppImage"
     
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
@@ -44,4 +38,7 @@ else
   echo -e "Nvim already installed..\n Skipping..."
 fi
 {{ end }}
+{{ else }}
+echo -e "Nvim is not available on this architecture"
+{{end}}
 
