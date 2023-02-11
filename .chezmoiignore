@@ -3,3 +3,6 @@
 .config/kitty
 .config/waybar
 {{- end }}
+{{- if ne .chezmoi.arch "amd64" }}
+.config/nvim
+{{- end }}

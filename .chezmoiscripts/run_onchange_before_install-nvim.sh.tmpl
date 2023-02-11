@@ -1,6 +1,6 @@
 #!/bin/bash
 
-{{ if ne .chezmoi.arch "amd64" }}
+{{- if ne .chezmoi.arch "amd64" }}
 echo "Checking if nvim is installed.."
 
 if ! command -v nvim &>/dev/null; then
@@ -40,5 +40,5 @@ fi
 {{ end }}
 {{ else }}
 echo -e "Nvim is not available on this architecture"
-{{end}}
+{{- end }}
 
