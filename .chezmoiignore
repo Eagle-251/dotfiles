@@ -1,13 +1,3 @@
-{{- if eq .chezmoi.hostname "lenovoewan" }}
-.config/sway
-.config/kitty
-.config/waybar
-{{- end }}
-{{- if eq .chezmoi.hostname "xpsewan" }}
-.config/sway
-.config/kitty
-.config/waybar
-{{- end }}
 {{- if ne .chezmoi.arch "arm64" }}
 .config/nvim
 {{- end }}
