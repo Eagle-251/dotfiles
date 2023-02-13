@@ -1,4 +1,4 @@
-{{- if ne .chezmoi.hostname "lenovoewan" }}
+{{- if eq .chezmoi.hostname "lenovoewan" "xpsewan" }}
 .config/sway
 .config/kitty
 .config/waybar
