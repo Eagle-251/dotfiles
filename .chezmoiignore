@@ -1,4 +1,9 @@
-{{- if eq .chezmoi.hostname "lenovoewan" "xpsewan" }}
+{{- if eq .chezmoi.hostname "lenovoewan" }}
+.config/sway
+.config/kitty
+.config/waybar
+{{- end }}
+{{- if eq .chezmoi.hostname "xpsewan" }}
 .config/sway
 .config/kitty
 .config/waybar
