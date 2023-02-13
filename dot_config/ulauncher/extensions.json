@@ -1,0 +1,100 @@
+{
+    "com.github.brpaz.ulauncher-file-search": {
+        "id": "com.github.brpaz.ulauncher-file-search",
+        "url": "https://github.com/brpaz/ulauncher-file-search",
+        "updated_at": "2023-01-15T16:21:15.059200",
+        "last_commit": "0ea61c2049b27f1ddfa81d1844876f21dd9d6e7b",
+        "last_commit_time": "2020-07-03T13:30:16"
+    },
+    "com.github.kbialek.ulauncher-bitwarden": {
+        "id": "com.github.kbialek.ulauncher-bitwarden",
+        "url": "https://github.com/kbialek/ulauncher-bitwarden",
+        "updated_at": "2023-01-15T16:23:27.227989",
+        "last_commit": "e5c25ebc24142f064eaebb29f6e473ded6d6b315",
+        "last_commit_time": "2022-10-19T06:09:55"
+    },
+    "com.github.qcasey.ulauncher-homeassistant": {
+        "id": "com.github.qcasey.ulauncher-homeassistant",
+        "url": "https://github.com/qcasey/ulauncher-homeassistant",
+        "updated_at": "2023-01-15T16:28:28.388262",
+        "last_commit": "8a187aa6bdff8700cdbfbc0371b98dda33b253d5",
+        "last_commit_time": "2021-05-24T23:54:58"
+    },
+    "com.github.rdnetto.ulauncher-sway": {
+        "id": "com.github.rdnetto.ulauncher-sway",
+        "url": "https://github.com/rdnetto/ulauncher-sway",
+        "updated_at": "2023-01-15T16:32:24.649005",
+        "last_commit": "9fc141f01959fb5086518699229af97d920ca865",
+        "last_commit_time": "2021-07-22T12:29:13"
+    },
+    "com.github.tchar.ulauncher-albert-calculate-anything": {
+        "id": "com.github.tchar.ulauncher-albert-calculate-anything",
+        "url": "https://github.com/tchar/ulauncher-albert-calculate-anything",
+        "updated_at": "2023-01-15T16:35:12.972364",
+        "last_commit": "ee0903174c8b87cd1f7c3b6c1acef10702547507",
+        "last_commit_time": "2021-08-12T06:39:56"
+    },
+    "com.github.dynobo.ulauncher-list-keywords": {
+        "id": "com.github.dynobo.ulauncher-list-keywords",
+        "url": "https://github.com/dynobo/ulauncher-list-keywords",
+        "updated_at": "2023-01-15T16:36:32.021706",
+        "last_commit": "1cbb4380576335c83373a940a27874b7f6a873ea",
+        "last_commit_time": "2022-11-12T01:27:29"
+    },
+    "com.github.rapha149.ulauncher-deepl": {
+        "id": "com.github.rapha149.ulauncher-deepl",
+        "url": "https://github.com/Rapha149/ulauncher-deepl/",
+        "updated_at": "2023-01-15T16:37:59.262335",
+        "last_commit": "2dd4e692c5ed3b1c92258ae91354dcc370def909",
+        "last_commit_time": "2023-01-12T17:49:43"
+    },
+    "com.github.morettimarco.mullvad-ulauncher": {
+        "id": "com.github.morettimarco.mullvad-ulauncher",
+        "url": "https://github.com/morettimarco/mullvad-ulauncher",
+        "updated_at": "2023-01-15T21:03:27.769078",
+        "last_commit": "ee12dd55908c2888a8ad23a662bcb439e2507cd5",
+        "last_commit_time": "2021-03-29T15:56:04"
+    },
+    "com.github.kwaadpepper.zealdoc": {
+        "id": "com.github.kwaadpepper.zealdoc",
+        "url": "https://github.com/Kwaadpepper/zealdoc",
+        "updated_at": "2023-01-15T21:03:49.756121",
+        "last_commit": "e56fc14464783e3c1ad7f4f219e1efaab6143328",
+        "last_commit_time": "2021-09-04T07:35:18"
+    },
+    "com.github.the-lay.ulauncher-spotify-api": {
+        "id": "com.github.the-lay.ulauncher-spotify-api",
+        "url": "https://github.com/the-lay/ulauncher-spotify-api",
+        "updated_at": "2023-01-15T21:05:15.901143",
+        "last_commit": "edf13b356543bb2827ed3c78981c007e5be40e77",
+        "last_commit_time": "2022-12-26T12:08:25"
+    },
+    "com.github.brpaz.ulauncher-github": {
+        "id": "com.github.brpaz.ulauncher-github",
+        "url": "https://github.com/brpaz/ulauncher-github",
+        "updated_at": "2023-01-15T21:06:33.111103",
+        "last_commit": "c2a4d8f651c326c13290eb9e28c076f14aaac704",
+        "last_commit_time": "2022-10-15T10:36:52"
+    },
+    "com.github.ulauncher.ulauncher-timer": {
+        "id": "com.github.ulauncher.ulauncher-timer",
+        "url": "https://github.com/ulauncher/ulauncher-timer",
+        "updated_at": "2023-01-15T21:07:08.297169",
+        "last_commit": "4262fc24db08610d01ea311d2e12f22588c98886",
+        "last_commit_time": "2020-11-03T07:21:30"
+    },
+    "com.github.hillaryychan.ulauncher-fzf": {
+        "id": "com.github.hillaryychan.ulauncher-fzf",
+        "url": "https://github.com/hillaryychan/ulauncher-fzf",
+        "updated_at": "2023-01-15T21:12:44.970593",
+        "last_commit": "57678a77939a1389e2815b546fc68916692ba512",
+        "last_commit_time": "2023-01-12T12:38:04"
+    },
+    "com.github.ulauncher.ulauncher-emoji": {
+        "id": "com.github.ulauncher.ulauncher-emoji",
+        "url": "https://github.com/Ulauncher/ulauncher-emoji",
+        "updated_at": "2023-01-16T10:51:29.808405",
+        "last_commit": "4c6af50d1c9a24d5aad2c597634ff0c634972a5c",
+        "last_commit_time": "2021-08-08T19:19:59"
+    }
+}
