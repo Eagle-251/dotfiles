@@ -1,12 +1,13 @@
-{{ if eq .chezmoi.hostname "lenovoewan" }}
+{{ if eq .chezmoi.hostname "lenovoewan" "xpsewan" }}
 if status is-interactive
     eval (ssh-agent -c) > /dev/null 2>&1
     set SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
     # Commands to run in interactive sessions can go here
 end
+{{ end }}
+
+{{ if eq .chezmoi.hostname "lenovoewan" }}
 pyenv init - | source
-{{ else }}
-#empty
 {{ end }}
 
 direnv hook fish | source
