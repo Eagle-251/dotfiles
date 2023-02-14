@@ -1,88 +1,37 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
-
-if ! command -v fish &>/dev/null; then
-echo "Fish shell not installed.. will install"
-    
-{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
-    sudo apt-add-repository ppa:fish-shell/release-3
-    sudo apt update
-else 
-  echo -e "Already installed \n Skipping..."
-fi
-{{ if eq .chezmoi.osRelease.id "debian" -}}
-
-echo "Found Debian.. checking release version"
-
-{{ if eq .chezmoi.osRelease.versionID "10" -}}
-
-echo "Found Debian 10.. adding Third party fish repo"
-
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
-curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
-sudo apt update
-
-else 
-  echo -e "Already installed \n Skipping..."
-fi
-
-{{ else if eq .chezmoi.osRelease.versionID "11" -}}
-
-echo "Found Debian 11... adding Third party fish repo"
-
-#Fish Repo setup & Install
-echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_11/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
-curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_11/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_fish_release_3.gpg > /dev/null
-sudo apt update
-
-else 
-  echo -e "already installed \n skipping..."
-fi
-
-{{ end }}
-{{ end }}
 
 echo "Installing general Packages.."
 
-sudo apt install -y \
-fish \
-fzf \
-fd-find \
-htop \
-jq \
-pwgen \
-net-tools \
-direnv \
+{{- if eq .chezmoi.osRelease.id "ubuntu" "debian "}}
 
-{{ else }}
-  echo -e "Not installed but I don't know this OS \n Skipping..."
-else 
-  echo -e "already installed \n skipping..."
-fi
+  sudo apt install -y \
+  fzf \
+  fd-find \
+  htop \
+  jq \
+  pwgen \
+  net-tools \
+  direnv 
+  
+{{- end }}
 
-{{ end }}
+{{- if eq .chezmoi.osRelease.id "fedora"}}
 
-{{ else if eq .chezmoi.osRelease.id "fedora" -}}
+  echo "Found Fedora.. installing Fish and General Packages with DNF..."
+  
+  sudo dnf update
+  sudo dnf install -y \
+  fish \
+  python3-neovim \
+  htop \
+  gopass \
+  ansible \
+  openssl \
+  bat \
+  fd-find \
+  fzf \
+  neofetch \
+  sshfs \
+  rofi \
 
-echo "Found Fedora.. installing Fish and General Packages with DNF..."
-
-sudo dnf update
-sudo dnf install -y \
-fish 
-else
-  echo -e "Fish already installed.."
-fi
-
-sudo dnf install -y \
-python3-neovim \
-htop \
-gopass \
-ansible \
-openssl \
-bat \
-fd-find \
-fzf \
-neofetch \
-sshfs \
-rofi \
-{{ end }}
+{{- end }}
