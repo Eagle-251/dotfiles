@@ -2,7 +2,6 @@ include ~/.config/sway/config.d/exec-always.conf
 include ~/.config/sway/workspaces
 include ~/.config/sway/config.d/keymaps.conf
 include ~/.config/sway/config.d/wob
-include ~/.config/sway/workspaces
 
 set $lock exec gtklock -m ~/source-code/Github/gtklock-playerctl-module/playerctl-module.so -s ~/.config/gtklock/style.css
 set $term kitty
